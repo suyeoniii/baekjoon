@@ -15,7 +15,7 @@ int main(){
         if(ans==s){
             cout<<"Soongsil";
         }
-        else if(ans==h){
+        else if(ans==k){
             cout<<"Korea";
         }
         else{
