@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int N, M;
+    int r = 0, c = 0;
+    int ans = 0;
+    int tmp = 0;
+    string arr[100];
+    cin>>N>>M;
+
+    for(int i = 0; i<N; i++){
+        string s;
+        cin>>s;
+
+        arr[i] = s;
+    }
+
+    for(int i = 0; i<N; i++){
+        r = 0;
+        for(int j = 0; j< M; j++) {
+            if(arr[i][j]=='.'){
+               r += 1;
+            }
+        }
+        if(r == M){
+            tmp += 1;
+            ans += 1;
+        }
+    }
+
+    for(int i = 0; i<M; i++){
+        c = 0;
+        for(int j = 0; j< N; j++) {
+            if(arr[j][i]=='.'){
+                c += 1;
+            }
+        }
+        if(c == N){
+            if(tmp > 0){
+                tmp -= 1;
+            }
+            else {
+                ans += 1;
+            }
+        }
+    }
+
+    cout<< ans;
+}
