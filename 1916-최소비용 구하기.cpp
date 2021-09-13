@@ -8,24 +8,27 @@ using namespace std;
 
 int main(){
 
-    vector<pair<int, int>> v[300001];
-    int dist[300001];
+    vector<pair<int, int>> v[100001];
+    int dist[100001];
 
-    int V, E, K;
-    cin>>V>>E>>K;
+    int N, M;
+    cin>>N>>M;
 
-    for(int i = 0; i<E; i++){
+    for(int i = 0; i<M; i++){
         int s, e, d;
         cin>>s>>e>>d;
 
         v[s].push_back(make_pair(e, d));
     }
 
+    int start, end;
+    cin>>start>>end;
+
     memset(dist, 0x7f, sizeof(dist));
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-    pq.push({0, K});
-    dist[K] = 0;
+    pq.push({0, start});
+    dist[start] = 0;
 
     while(!pq.empty()){
         int index = pq.top().second;
@@ -46,10 +49,5 @@ int main(){
         }
     }
 
-    for(int i = 1; i<=V; i++){
-        if(dist[i]==2139062143)
-            cout<<"INF"<<"\n";
-        else
-            cout<<dist[i]<<"\n";
-    }
+    cout<<dist[end];
 }
